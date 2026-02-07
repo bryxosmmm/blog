@@ -4,7 +4,9 @@ import           Hakyll
 import Text.Pandoc.Options
 
 myWriterOptions :: WriterOptions
-myWriterOptions = defaultHakyllWriterOptions { writerHTMLMathMethod = MathJax "" }
+myWriterOptions = defaultHakyllWriterOptions{
+        writerHTMLMathMethod = MathJax ""
+    }
 
 myPandocCompiler :: Compiler (Item String)
 myPandocCompiler = pandocCompilerWith defaultHakyllReaderOptions myWriterOptions

@@ -1,0 +1,44 @@
+/* Nord Syntax Highlighting for Pandoc/Hakyll */
+pre.sourceCode {
+  background-color: #2e3440;
+  color: #d8dee9;
+  padding: 1em;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+code.sourceCode > span {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* Token Classes */
+.sourceCode .al { color: #bf616a; font-weight: bold; } /* Alert */
+.sourceCode .an { color: #d08770; }                   /* Annotation */
+.sourceCode .at { color: #8fbcbb; }                   /* Attribute */
+.sourceCode .bn { color: #b48ead; }                   /* BaseN */
+.sourceCode .bu { color: #88c0d0; font-style: italic; } /* BuiltIn */
+.sourceCode .cf { color: #81a1c1; font-weight: bold; } /* ControlFlow */
+.sourceCode .ch { color: #ebcb8b; }                   /* Char */
+.sourceCode .cn { color: #eceff4; font-weight: bold; } /* Constant */
+.sourceCode .co { color: #616e88; }                   /* Comment */
+.sourceCode .cv { color: #e5e9f0; }                   /* CommentVar */
+.sourceCode .do { color: #5e81ac; }                   /* Documentation */
+.sourceCode .dt { color: #81a1c1; }                   /* DataType */
+.sourceCode .dv { color: #b48ead; }                   /* DecVal */
+.sourceCode .er { color: #bf616a; text-decoration: underline; } /* Error */
+.sourceCode .ex { color: #8fbcbb; font-weight: bold; } /* Extension */
+.sourceCode .fl { color: #b48ead; }                   /* Float */
+.sourceCode .fu { color: #88c0d0; }                   /* Function */
+.sourceCode .im { color: #a3be8c; }                   /* Import */
+.sourceCode .in { color: #ebcb8b; }                   /* Information */
+.sourceCode .kw { color: #81a1c1; font-weight: bold; } /* Keyword */
+.sourceCode .op { color: #81a1c1; }                   /* Operator */
+.sourceCode .ot { color: #8fbcbb; }                   /* Others */
+.sourceCode .pp { color: #5e81ac; }                   /* Preprocessor */
+.sourceCode .sc { color: #ebcb8b; }                   /* SpecialChar */
+.sourceCode .ss { color: #d08770; }                   /* SpecialString */
+.sourceCode .st { color: #a3be8c; }                   /* String */
+.sourceCode .va { color: #5e81ac; }                   /* Variable */
+.sourceCode .vs { color: #a3be8c; }                   /* VerbatimString */
+.sourceCode .wa { color: #bf616a; }                   /* Warning */

@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>$title$</title>
         <link rel="stylesheet" href="/css/default.css" />
+        <link rel="stylesheet" href="/css/syntax.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
         <script defer
                 src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -26,36 +27,33 @@
 
     </head>
     <body>
-        <header>
-            <div class="site-header">
-                <div class="logo">
-                    <a href="/">My Digital Garden</a>
+        <div class="site-wrapper">
+            <header class="sidebar">
+                <div class="sidebar-content">
+                    <div class="logo">
+                        <a href="/">My Digital Garden</a>
+                    </div>
+                    <nav>
+                        <a href="/">Home</a>
+                        <a href="/about.html">About</a>
+                        <a href="/archive.html">Archive</a>
+                    </nav>
+                    <div class="sidebar-footer">
+                        <div class="footer-links">
+                            <a href="https://github.com/bryxosmmm">Github</a>
+                            <span class="separator">·</span>
+                            <a href="https://t.me/extremepeacee">Telegram</a>
+                        </div>
+                        <div class="footer-note">
+                            Powered by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+                        </div>
+                    </div>
                 </div>
-                <nav>
-                    <a href="/">Home</a>
-                    <span class="separator">|</span>
-                    <a href="/about.html">About</a>
-                    <span class="separator">|</span>
-                    <a href="/archive.html">Archive</a>
-                </nav>
-            </div>
-        </header>
+            </header>
 
-        <main role="main">
-            $body$
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="https://github.com/bryxosmmm">gh</a>
-                    <span class="separator">|</span>
-                    <a href="https://t.me/extremepeacee">tg</a>
-                </div>
-                <div class="footer-note">
-                    Powered by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
-                </div>
-            </div>
-        </footer>
+            <main role="main">
+                $body$
+            </main>
+        </div>
     </body>
 </html>
