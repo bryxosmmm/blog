@@ -1,13 +1,13 @@
 <article>
-    <section class="header">
-        $if(date)$
-            Posted on $date$
-        $endif$
-        $if(author)$
-            by $author$
-        $endif$
-    </section>
-    <section>
+    <header class="post-header">
+        <div class="post-meta">
+            $date$
+            <span class="separator">|</span>
+            $if(tags)$$tags$$else$no tags$endif$
+        </div>
+        <h1>$title$</h1>
+    </header>
+    <section class="post-content">
         $body$
     </section>
 </article>
