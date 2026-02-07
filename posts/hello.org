@@ -1,0 +1,13 @@
+---
+title: Hello
+date: 2026-02-07
+---
+
+* Hello
+Hello world
+
+$$
+\int_{x}^{y} x dx = \pi
+$$
+
+And this is how we doing that
