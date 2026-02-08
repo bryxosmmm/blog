@@ -13,6 +13,22 @@ myPandocCompiler = pandocCompilerWith defaultHakyllReaderOptions myWriterOptions
 
 main :: IO ()
 main = hakyll $ do
+    tags <- buildTags "posts/*" (fromCapture "tags/*.html")
+    tagsRules tags $ \tag pattern -> do
+        let title = "Posts tagged \"" ++ tag ++ "\""
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll pattern
+            let ctx = constField "title" title
+                      `mappend` constField "tag" tag
+                      `mappend` listField "posts" postCtx (return posts)
+                      `mappend` defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/tag.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= relativizeUrls
+
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -20,6 +36,10 @@ main = hakyll $ do
     match "css/*" $ do
         route   idRoute
         compile compressCssCompiler
+
+    match ("static/fonts/*" .||. "fonts/*") $ do
+        route idRoute
+        compile copyFileCompiler
 
     match (fromList ["about.org", "contact.org"]) $ do
         route   $ setExtension "html"
@@ -30,8 +50,8 @@ main = hakyll $ do
     match "posts/*.org" $ do
         route $ setExtension "html"
         compile $ myPandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
 
     create ["archive.html"] $ do
@@ -54,7 +74,7 @@ main = hakyll $ do
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*.org"
             let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
+                    listField "posts" (postCtxWithTags tags) (return posts) `mappend`
                     defaultContext
 
             getResourceBody
@@ -66,7 +86,11 @@ main = hakyll $ do
 
 
 --------------------------------------------------------------------------------
+
 postCtx :: Context String
 postCtx =
     dateField "date" "%b %e, %Y" `mappend`
     defaultContext
+
+postCtxWithTags :: Tags -> Context String
+postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx

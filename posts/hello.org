@@ -1,21 +1,21 @@
 ---
 title: Hello
 date: 2026-02-07
+tags: rust
 ---
 
 It's first post on my new website!
 In the next blogposts im gonna talk about Lean, FP, ML and other stuff that im intrested in.
-The Org website[fn:1] looks great.
-#+BEGIN_QUOTE
-Everything should be made as simple as possible,
-but not any simpler ---Albert Einstein
-#+END_QUOTE
 
 
 ** Theorem Proving
 Its quite funny to do
-#+begin_src haskell
-main :: IO ()
+#+begin_src rust
+fn main() {
+  println!("hello, world");
+}
 #+end_src
 
-[fn:1] Visit https://orgmode.org.
+* Links
+[[file:next.html][post]]
+
