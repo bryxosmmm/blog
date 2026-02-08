@@ -104,9 +104,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--link-hover);
 }
 
 .separator {
@@ -134,14 +132,10 @@ nav a:hover {
 
 .footer-links a:hover {
   color: var(--link);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 .footer-note a {
   color: var(--text-muted);
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 main {
@@ -265,8 +259,6 @@ a {
 
 a:hover {
   color: var(--link-hover);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 ul, ol {
@@ -304,8 +296,6 @@ li {
 
 .post-item .title:hover {
   color: var(--link);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 .post-item .meta {
@@ -440,7 +430,6 @@ pre code {
 
 .post-meta a:hover {
   color: var(--link);
-  text-decoration: underline;
 }
 
 .post-meta .separator {
@@ -454,7 +443,6 @@ pre code {
 }
 
 .post-tags a:hover {
-  text-decoration: underline;
   color: var(--link);
 }
 
