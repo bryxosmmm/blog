@@ -21,7 +21,7 @@ main = hakyll $ do
             posts <- recentFirst =<< loadAll pattern
             let ctx = constField "title" title
                       `mappend` constField "tag" tag
-                      `mappend` listField "posts" postCtx (return posts)
+                      `mappend` listField "posts" (postCtxWithTags tags) (return posts)
                       `mappend` defaultContext
 
             makeItem ""
@@ -37,13 +37,14 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    match ("static/fonts/*" .||. "fonts/*") $ do
+    match ("static/fonts/**" .||. "fonts/**") $ do
         route idRoute
         compile copyFileCompiler
 
     match (fromList ["about.org", "contact.org"]) $ do
         route   $ setExtension "html"
         compile $ myPandocCompiler
+            >>= loadAndApplyTemplate "templates/page.html"    defaultContext
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
@@ -59,7 +60,7 @@ main = hakyll $ do
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*.org"
             let archiveCtx =
-                    listField "posts" postCtx (return posts) `mappend`
+                    listField "posts" (postCtxWithTags tags) (return posts) `mappend`
                     constField "title" "Archives"            `mappend`
                     defaultContext
 

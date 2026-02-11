@@ -1,10 +1,13 @@
 /* Nord Syntax Highlighting for Pandoc/Hakyll */
 pre.sourceCode {
-  background-color: #2e3440;
-  color: #d8dee9;
-  padding: 1em;
-  border-radius: 4px;
+  background-color: var(--nord0);
+  color: var(--nord6);
+  padding: 1.5rem;
+  border-radius: 8px;
   overflow: auto;
+  border: 1px solid var(--nord2);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
 }
 
 code.sourceCode > span {

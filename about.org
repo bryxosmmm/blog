@@ -1,16 +1,17 @@
-#+title: About
+---
+title: About
+---
 
-Nullam imperdiet sodales orci vitae molestie. Nunc quam orci, pharetra a
-rhoncus vitae, eleifend id felis. Suspendisse potenti. Etiam vitae urna orci.
-Quisque pellentesque dignissim felis, egestas tempus urna luctus vitae. In hac
-habitasse platea dictumst. Morbi fringilla mattis odio, et mattis tellus
-accumsan vitae.
+I am 19 year old programmer.
+I study Business Informatics in NUST MISIS at Moscow.
+Currently trying to get job and do what i love for money.
+Done a lot of backend, a little bit of system programming, and one compiler for lisp.
+But now im learning math and ML. Also doing some Lean but that not so serious right now.
+In feature want to work in research or something kind of HFT.
+wtf am i doing here. heheh
 
-1. Amamus Unicode 碁
-2. Interdum nex magna.
+Currently 
 
-Vivamus eget mauris sit amet nulla laoreet lobortis. Nulla in diam elementum
-risus convallis commodo. Cras vehicula varius dui vitae facilisis. Proin
-elementum libero eget leo aliquet quis euismod orci vestibulum. Duis rhoncus
-lorem consequat tellus vestibulum aliquam. Quisque orci orci, malesuada porta
-blandit et, interdum nec magna.
+
+
+
