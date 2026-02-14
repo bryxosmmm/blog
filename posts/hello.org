@@ -1,34 +1,8 @@
 ---
 title: Hello
 date: 2026-02-07
-tags: rust, lean
 ---
 
-It's first post on my new website!
-In the *hello* ~something~ blogposts im gonna talk about Lean, FP, ML and other stuff that im intrested in.
-\[
-\int_{x}^{y} x dx = \frac{x}{dx}
-\]
-
-- first \( x_{2 y} \)
-- second
-
-[[../images/haskell-logo.png]]
-
-#+begin_quote
-Hell nah 
-#+end_quote
-
-
-** Theorem Proving
-Its quite funny to do
-#+begin_src rust
-fn main() {
-  println!("hello, world");
-}
-#+end_src
-
-
-* Links
-[[file:next.html][post]]
-
+This is the first post on my new website!
+Moving forward, I’m going to write about the things I’m interested in and currently working on.
+I think my next post will be about using Haskell to solve Jane Street puzzles.

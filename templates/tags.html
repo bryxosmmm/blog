@@ -1,0 +1,11 @@
+<div class="tags-page">
+    <header class="tag-header">
+        <span class="tag-label">~/tags</span>
+    </header>
+
+    <ul>
+    $for(taglist)$
+        <li><a href="$url$">$tag$</a> ($count$ posts)</li>
+    $endfor$
+    </ul>
+</div>

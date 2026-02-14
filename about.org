@@ -2,15 +2,12 @@
 title: About
 ---
 
-I am 19 year old programmer.
-I study Business Informatics in NUST MISIS at Moscow.
-Currently trying to get job and do what i love for money.
-Done a lot of backend, a little bit of system programming, and one compiler for lisp.
-But now im learning math and ML. Also doing some Lean but that not so serious right now.
-In feature want to work in research or something kind of HFT.
-wtf am i doing here. heheh
-
-Currently 
+I’m a 19-year-old programmer studying Business Informatics at NUST MISIS in Moscow.
+Right now, I’m trying to find a job and do what I love for a living.
+I’ve done quite a bit of backend development, a bit of systems programming, and built a small Lisp compiler.
+These days, I’m learning math and ML, and I also play around with Lean.
+In the future, I’d like to work in research or something related to high-frequency trading.
+I plan to post more about my projects and interesting things I discover along the way.
 
 
 

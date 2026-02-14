@@ -11,6 +11,7 @@ myWriterOptions = defaultHakyllWriterOptions{
 myPandocCompiler :: Compiler (Item String)
 myPandocCompiler = pandocCompilerWith defaultHakyllReaderOptions myWriterOptions
 
+
 main :: IO ()
 main = hakyll $ do
     tags <- buildTags "posts/*" (fromCapture "tags/*.html")
@@ -83,6 +84,19 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
 
+    create ["tags.html"] $ do
+        route idRoute
+        compile $ do
+            let tagsCtx =
+                    listField "taglist" (field "tag" (return . itemBody))
+                        (mapM (makeItem . fst) (tagsMap tags))
+                    `mappend` defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/tags.html" tagsCtx
+                >>= loadAndApplyTemplate "templates/default.html" tagsCtx
+                >>= relativizeUrls
+
     match "templates/*" $ compile templateBodyCompiler
 
 
@@ -94,4 +108,13 @@ postCtx =
     defaultContext
 
 postCtxWithTags :: Tags -> Context String
-postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
+postCtxWithTags tags =
+    field "hasTags" hasTagsField `mappend`
+    tagsField "tags" tags `mappend`
+    postCtx
+  where
+    hasTagsField item = do
+        metaTags <- getMetadataField (itemIdentifier item) "tags"
+        pure $ case metaTags of
+            Just raw | not (null (words raw)) -> "true"
+            _ -> ""
