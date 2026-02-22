@@ -1,11 +1,13 @@
 <div class="tags-page">
-    <header class="tag-header">
-        <span class="tag-label">~/tags</span>
+    <header class="page-intro" aria-labelledby="tags-title">
+        <p class="page-kicker">Tags</p>
+        <h1 id="tags-title">Topic index</h1>
+        <p>Browse posts by tag.</p>
     </header>
 
-    <ul>
+    <ul class="tag-list">
     $for(taglist)$
-        <li><a href="$url$">$tag$</a> ($count$ posts)</li>
+        <li><a href="$url$">$tag$</a> <span>($count$ posts)</span></li>
     $endfor$
     </ul>
 </div>

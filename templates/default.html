@@ -5,6 +5,9 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>$title$</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/default.css" />
         <link rel="stylesheet" href="/css/syntax.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -22,37 +25,48 @@
                 {left: "\\[", right: "\\]", display: true}
               ]
             });
+
+            var currentPath = window.location.pathname;
+            document.querySelectorAll(".main-nav a").forEach(function (link) {
+              var href = link.getAttribute("href");
+              if (href === currentPath || (href !== "/" && currentPath.startsWith(href.replace(/\.html$/, "")))) {
+                link.setAttribute("aria-current", "page");
+              }
+            });
           });
         </script>
 
     </head>
     <body>
-        <div class="site-wrapper">
-            <header class="sidebar">
-                <div class="sidebar-content">
-                    <div class="logo">
-                        <a href="/">Extreme Peace Blog</a>
-                    </div>
-                    <nav>
+        <div class="site-shell">
+            <header class="site-header">
+                <div class="layout-shell header-inner">
+                    <a class="site-brand" href="/">Extreme Peace Blog</a>
+                    <nav class="main-nav" aria-label="Primary">
+                        <a href="/">Home</a>
                         <a href="/about.html">About</a>
                         <a href="/archive.html">Archive</a>
+                        <a href="/tags.html">Tags</a>
                     </nav>
-                    <div class="sidebar-footer">
-                        <div class="footer-links">
-                            <a href="https://github.com/bryxosmmm">Github</a>
-                            <span class="separator">·</span>
-                            <a href="https://t.me/extremepeacee">Telegram</a>
-                        </div>
-                        <div class="footer-note">
-                            Powered by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
-                        </div>
-                    </div>
                 </div>
             </header>
 
-            <main role="main">
+            <main class="site-main layout-shell" role="main">
                     $body$
             </main>
+
+            <footer class="site-footer">
+                <div class="layout-shell footer-inner">
+                    <div class="footer-links">
+                        <a href="https://github.com/bryxosmmm">Github</a>
+                        <span class="separator">·</span>
+                        <a href="https://t.me/extremepeacee">Telegram</a>
+                    </div>
+                    <div class="footer-note">
+                        Powered by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
 </html>

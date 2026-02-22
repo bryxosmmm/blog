@@ -2,17 +2,22 @@
 title: Home
 ---
 
-<img src="/images/banner.svg" alt="" style="width: 100%; max-width: 701px; margin-bottom: 2rem;" />
-
-<section class="welcome">
-    <p>
+<section class="home-intro" aria-labelledby="home-title">
+    <p class="home-kicker">Extreme Peace Blog</p>
+    <h1 id="home-title">Projects, systems, and ideas in progress.</h1>
+    <p class="welcome-lead">
         Welcome! This is my place for projects and new ideas.
     </p>
     <p>
         Here I'm going to write about things that I'm interested in and working with.
     </p>
+    <img src="/images/banner.svg" alt="" class="home-motif" />
 </section>
 
-<section>
+<section class="recent-posts" aria-labelledby="recent-title">
+    <div class="section-head">
+        <h2 id="recent-title">Recent posts</h2>
+        <a href="/archive.html" class="section-link">View archive</a>
+    </div>
     $partial("templates/post-list.html")$
 </section>

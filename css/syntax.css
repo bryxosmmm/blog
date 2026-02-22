@@ -1,13 +1,84 @@
-/* Nord Syntax Highlighting for Pandoc/Hakyll */
+/* Syntax Highlighting for Pandoc/Hakyll */
+:root {
+  --syn-bg: var(--code-bg, #f3f6fb);
+  --syn-fg: var(--code-text, #253140);
+  --syn-border: var(--code-border, #c3ccda);
+  --syn-pad-y: 0.95rem;
+  --syn-pad-x: 1.15rem;
+  --syn-margin: 1.55rem;
+
+  /* Token palette: light mode */
+  --tok-kw: #34557a;      /* keyword/control/operator */
+  --tok-fn: #2c6b86;      /* function/type */
+  --tok-str: #2f7457;     /* strings/chars */
+  --tok-num: #6a4a9f;     /* numbers/constants */
+  --tok-cmt: #4f5f75;     /* comments/meta */
+  --tok-err: #9d1f34;     /* errors */
+  --tok-err-bg: #f3d7dd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Token palette: dark mode */
+    --tok-kw: #9fc0e3;
+    --tok-fn: #90cadf;
+    --tok-str: #9acfb1;
+    --tok-num: #c4a9df;
+    --tok-cmt: #aebbd0;
+    --tok-err: #ff8ea4;
+    --tok-err-bg: #52313a;
+  }
+}
+
+/* Outer wrapper that pandoc commonly emits */
+div.sourceCode {
+  background: var(--syn-bg);
+  border: 1px solid var(--syn-border);
+  border-radius: 0;
+  box-shadow: none;
+  margin: var(--syn-margin) 0;
+}
+
+/* Fallback: plain pre.sourceCode without wrapper */
 pre.sourceCode {
-  background-color: var(--nord0);
-  color: var(--nord6);
-  padding: 1.5rem;
-  border-radius: 8px;
+  background: var(--syn-bg);
+  color: var(--syn-fg);
+  border: 1px solid var(--syn-border);
+  border-radius: 0;
+  margin: var(--syn-margin) 0;
+  padding: var(--syn-pad-y) var(--syn-pad-x);
   overflow: auto;
-  border: 1px solid var(--nord2);
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1em;
+  line-height: 1.66;
+  white-space: pre;
+  word-break: normal;
+}
+
+/* Wrapped variant: keep wrapper border, inner block transparent */
+div.sourceCode > pre.sourceCode {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--syn-fg);
+  padding: var(--syn-pad-y) var(--syn-pad-x);
+  overflow: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1em;
+  line-height: 1.66;
+  white-space: pre;
+  word-break: normal;
+}
+
+/* Ensure code glyphs stay upright and consistent */
+code.sourceCode,
+code.sourceCode > span,
+pre.sourceCode code,
+div.sourceCode pre,
+div.sourceCode pre code {
+  font-family: 'JetBrains Mono', monospace;
+  font-style: normal;
 }
 
 code.sourceCode > span {
@@ -16,32 +87,53 @@ code.sourceCode > span {
 }
 
 /* Token Classes */
-.sourceCode .al { color: #bf616a; font-weight: bold; } /* Alert */
-.sourceCode .an { color: #d08770; }                   /* Annotation */
-.sourceCode .at { color: #8fbcbb; }                   /* Attribute */
-.sourceCode .bn { color: #b48ead; }                   /* BaseN */
-.sourceCode .bu { color: #88c0d0; font-style: italic; } /* BuiltIn */
-.sourceCode .cf { color: #81a1c1; font-weight: bold; } /* ControlFlow */
-.sourceCode .ch { color: #ebcb8b; }                   /* Char */
-.sourceCode .cn { color: #eceff4; font-weight: bold; } /* Constant */
-.sourceCode .co { color: #616e88; }                   /* Comment */
-.sourceCode .cv { color: #e5e9f0; }                   /* CommentVar */
-.sourceCode .do { color: #5e81ac; }                   /* Documentation */
-.sourceCode .dt { color: #81a1c1; }                   /* DataType */
-.sourceCode .dv { color: #b48ead; }                   /* DecVal */
-.sourceCode .er { color: #bf616a; text-decoration: underline; } /* Error */
-.sourceCode .ex { color: #8fbcbb; font-weight: bold; } /* Extension */
-.sourceCode .fl { color: #b48ead; }                   /* Float */
-.sourceCode .fu { color: #88c0d0; }                   /* Function */
-.sourceCode .im { color: #a3be8c; }                   /* Import */
-.sourceCode .in { color: #ebcb8b; }                   /* Information */
-.sourceCode .kw { color: #81a1c1; font-weight: bold; } /* Keyword */
-.sourceCode .op { color: #81a1c1; }                   /* Operator */
-.sourceCode .ot { color: #8fbcbb; }                   /* Others */
-.sourceCode .pp { color: #5e81ac; }                   /* Preprocessor */
-.sourceCode .sc { color: #ebcb8b; }                   /* SpecialChar */
-.sourceCode .ss { color: #d08770; }                   /* SpecialString */
-.sourceCode .st { color: #a3be8c; }                   /* String */
-.sourceCode .va { color: #5e81ac; }                   /* Variable */
-.sourceCode .vs { color: #a3be8c; }                   /* VerbatimString */
-.sourceCode .wa { color: #bf616a; }                   /* Warning */
+.sourceCode .al,
+.sourceCode .wa,
+.sourceCode .cf,
+.sourceCode .kw,
+.sourceCode .op {
+  color: var(--tok-kw);
+  font-weight: 700;
+}
+
+.sourceCode .fu,
+.sourceCode .dt,
+.sourceCode .at,
+.sourceCode .ex,
+.sourceCode .ot,
+.sourceCode .pp,
+.sourceCode .va {
+  color: var(--tok-fn);
+}
+
+.sourceCode .ch,
+.sourceCode .st,
+.sourceCode .ss,
+.sourceCode .sc,
+.sourceCode .vs,
+.sourceCode .im {
+  color: var(--tok-str);
+}
+
+.sourceCode .bn,
+.sourceCode .dv,
+.sourceCode .fl,
+.sourceCode .cn {
+  color: var(--tok-num);
+}
+
+.sourceCode .co,
+.sourceCode .cv,
+.sourceCode .do,
+.sourceCode .in,
+.sourceCode .an,
+.sourceCode .bu {
+  color: var(--tok-cmt);
+}
+
+.sourceCode .er {
+  color: var(--tok-err);
+  background: var(--tok-err-bg);
+  text-decoration: none;
+  font-weight: 600;
+}
