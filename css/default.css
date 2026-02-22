@@ -45,6 +45,8 @@
 }
 
 html {
+  min-height: 100%;
+  background-color: #10151d;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -67,6 +69,8 @@ body {
     radial-gradient(circle at 52% 108%, rgba(94, 129, 172, 0.12), transparent 42%),
     linear-gradient(180deg, #141922 0%, #1a202c 58%, #10151d 100%);
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -156,6 +160,8 @@ select:focus-visible {
 
 .site-shell {
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
