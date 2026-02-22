@@ -9,7 +9,7 @@
       systems = nixpkgs.lib.systems.flakeExposed;
       imports = [ inputs.haskell-flake.flakeModule ];
 
-      perSystem = { self', pkgs, ... }: {
+      perSystem = { self', ... }: {
 
         # Typically, you just want a single project named "default". But
         # multiple projects are also possible, each using different GHC version.
@@ -51,8 +51,9 @@
           };
         };
 
-        # haskell-flake doesn't set the default package, but you can do it here.
-        packages.default = self'.packages.example;
+        # Keep defaults explicit and minimal for this single-executable project.
+        packages.default = self'.packages.site;
+        apps.default = self'.apps.site;
       };
     };
 }
