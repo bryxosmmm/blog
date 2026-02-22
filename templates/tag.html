@@ -1,14 +1,9 @@
 <div class="tag-page">
-    <header class="tag-header">
-        <span class="tag-label">~/tags/$tag$</span>
-    </header>
-    
-    <div class="tag-content">
+    <section class="recent-posts tag-content" aria-labelledby="tag-posts-title">
+        <div class="section-head">
+            <h2 id="tag-posts-title">$tag$</h2>
+            <a href="/archive.html" class="section-link">Back to all writings</a>
+        </div>
         $partial("templates/post-list.html")$
-    </div>
-    
-    <div class="back-link">
-        <a href="/archive.html">← All posts</a>
-    </div>
+    </section>
 </div>
-

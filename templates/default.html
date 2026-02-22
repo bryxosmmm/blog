@@ -7,7 +7,7 @@
         <title>$title$</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka@5.2.6/index.css">
         <link rel="stylesheet" href="/css/default.css" />
         <link rel="stylesheet" href="/css/syntax.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -24,14 +24,6 @@
                 {left: "\\(", right: "\\)", display: false},
                 {left: "\\[", right: "\\]", display: true}
               ]
-            });
-
-            var currentPath = window.location.pathname;
-            document.querySelectorAll(".main-nav a").forEach(function (link) {
-              var href = link.getAttribute("href");
-              if (href === currentPath || (href !== "/" && currentPath.startsWith(href.replace(/\.html$/, "")))) {
-                link.setAttribute("aria-current", "page");
-              }
             });
           });
         </script>

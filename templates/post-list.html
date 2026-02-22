@@ -1,11 +1,8 @@
 <ul class="post-list">
     $for(posts)$
         <li class="post-item">
-            <time class="post-date">$date$</time>
-            <a href="$url$" class="post-title">$title$</a>
-            $if(tags)$
-                <div class="post-tags">$tags$</div>
-            $endif$
+            <p class="writing-date"><time class="post-date">$date$</time></p>
+            <h3 class="writing-title"><a href="$url$" class="post-title">$title$</a></h3>
         </li>
     $endfor$
 </ul>

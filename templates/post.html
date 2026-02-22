@@ -1,14 +1,10 @@
 <article class="post-article">
     <header class="post-header">
-        <p class="page-kicker">Post</p>
-        <h1>$title$</h1>
         <div class="post-meta">
             <time>$date$</time>
-            $if(hasTags)$
-                <span class="separator">|</span>
-                <span class="post-tags">$tags$</span>
-            $endif$
+            <span class="post-tags">$tags$</span>
         </div>
+        <h1>$title$</h1>
     </header>
     <section class="post-content">
         $body$
