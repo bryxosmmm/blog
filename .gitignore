@@ -1,3 +1,4 @@
 _*/
 dist-newstyle/
 .DS_Store
+.direnv/
